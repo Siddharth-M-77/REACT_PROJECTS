@@ -43,52 +43,56 @@ const Todo = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-gray-700 flex items-center justify-center">
-      <div className="max-w-xl rounded-md p-10 shadow-lg bg-white w-full text-center">
-        <h1 className="text-5xl mb-10">Todo List</h1>
-        <div className="flex items-center justify-center gap-5">
+    <div className="w-screen h-screen bg-gradient-to-br from-indigo-700 to-purple-700 flex items-center justify-center p-5">
+      <div className="max-w-xl rounded-lg shadow-lg p-8 bg-white w-full text-center">
+        <h1 className="text-4xl font-semibold mb-6 text-gray-800">Todo List</h1>
+        
+        {/* Input and Add/Save Button */}
+        <div className="flex items-center justify-center gap-4 mb-6">
           <input
             type="text"
             value={inputVal}
-            className="px-10 py-2 border border-cyan-300"
+            className="px-4 py-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
             onChange={handleInputChange}
-            placeholder="Enter todo"
+            placeholder="Enter a task"
           />
           <button
-            className="px-10 rounded-lg py-2 bg-gray-400 text-white hover:bg-orange-400 min-w-fit"
+            className={`px-6 py-2 rounded-lg text-white transition-all duration-300 ${
+              editId ? "bg-blue-500 hover:bg-blue-600" : "bg-green-500 hover:bg-green-600"
+            }`}
             onClick={editId ? saveTodo : addTodo}
           >
-            {editId ? "Save" : "Add Todo"}
+            {editId ? "Save" : "Add"}
           </button>
         </div>
-        <div className="list">
-          <ul>
-            {todos.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center justify-between bg-black mt-8"
-              >
-                <li className="p-4 flex-1 text-start rounded-lg text-xl uppercase mt-5 text-white">
-                  {item.text}
-                </li>
-                <div>
-                  <button
-                    onClick={() => deleteTodo(item.id)}
-                    className="px-4 py-1 bg-red-500 rounded-lg hover:bg-red-700 cursor-pointer mx-1 text-white"
-                  >
-                    Delete
-                  </button>
-                  <button
-                    onClick={() => editTodo(item.id, item.text)}
-                    className="px-4 py-1 bg-yellow-500 rounded-lg hover:bg-yellow-700 cursor-pointer text-white"
-                  >
-                    Edit
-                  </button>
-                </div>
+
+        {/* Todo List */}
+        <ul className="space-y-4">
+          {todos.map((item) => (
+            <li
+              key={item.id}
+              className="flex items-center justify-between p-4 bg-gray-100 rounded-lg shadow-sm hover:bg-gray-200 transition-colors duration-300"
+            >
+              <span className="text-lg font-medium text-gray-800">
+                {item.text}
+              </span>
+              <div className="flex space-x-3">
+                <button
+                  onClick={() => editTodo(item.id, item.text)}
+                  className="px-3 py-1 bg-yellow-400 text-yellow-900 rounded-md shadow hover:bg-yellow-500 transition-all duration-300"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => deleteTodo(item.id)}
+                  className="px-3 py-1 bg-red-500 text-white rounded-md shadow hover:bg-red-600 transition-all duration-300"
+                >
+                  Delete
+                </button>
               </div>
-            ))}
-          </ul>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
