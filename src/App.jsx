@@ -5,7 +5,7 @@ import RegistrationPageUsingRHF from './components/RegistrationPageUsingRHF'
 
 const App = () => {
   return (
-    <div>
+    <div className='w-screen h-screen'>
       {/* <TodoApp/> */}
       {/* <RegistrationForm/> */}
       <RegistrationPageUsingRHF/>
