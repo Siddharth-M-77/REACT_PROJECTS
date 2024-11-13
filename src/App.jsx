@@ -3,6 +3,7 @@ import React from 'react'
 // import RegistrationForm from './components/RegistrationForm'
 import RegistrationPageUsingRHF from './components/RegistrationPageUsingRHF'
 import FetchDataAndDisplayList from './FetchDataAndDisplayList'
+import FetchDataAndDisplayListWithPegination from './FetchDataAndDisplayListWithPegination'
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
       {/* <TodoApp/> */}
       {/* <RegistrationForm/> */}
       {/* <RegistrationPageUsingRHF/> */}
-      <FetchDataAndDisplayList/>
+      {/* <FetchDataAndDisplayList/> */}
+      <FetchDataAndDisplayListWithPegination/>
 
     </div>
   )
