@@ -6,6 +6,7 @@ import FetchDataAndDisplayList from "./components/FetchDataAndDisplayList";
 import FetchDataAndDisplayListWithPegination from "./components/FetchDataAndDisplayListWithPegination";
 import Counter from "./components/Counter";
 import { ThemeContext } from "./utils/ThemeContext";
+import SimpleEcommerce from "./components/SimpleEcommerce";
 
 const App = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -19,22 +20,22 @@ const App = () => {
           : "bg-white text-gray-800"
       }`}
     >
-      <div className="flex items-center justify-end pt-10 pr-4 ">
+      {/* <div className="flex items-center justify-end pt-10 pr-4 ">
         <button
           onClick={toggleTheme}
           className="px-4 py-2 text-center  block bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded transition duration-200"
         >
           Toggle Theme
         </button>
-      </div>
+      </div> */}
 
       {/* <TodoApp/> */}
       {/* <RegistrationForm/> */}
       {/* <RegistrationPageUsingRHF/> */}
       {/* <FetchDataAndDisplayList/> */}
       {/* <FetchDataAndDisplayListWithPegination/> */}
-
-      <Counter />
+      {/* <Counter /> */}
+      <SimpleEcommerce/>
     </div>
   );
 };
